@@ -193,5 +193,8 @@ def store_dashboard(Region, Category, Sub_Category, Segment, start_date, end_dat
         bar_fig, abar_fig, line_fig, hori_bar_fig, df.to_dict('records')
     )
 
+import os
+
 if __name__ == '__main__':
-    app.run(debug=True, port=8051)
+    port = int(os.environ.get('PORT', 8050))  # Render will set this
+    app.run(host='0.0.0.0', port=port, debug=False)
